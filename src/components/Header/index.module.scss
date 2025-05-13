@@ -1,0 +1,41 @@
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+
+  img {
+    height: 40px;
+    margin-right: 1rem;
+  }
+}
+
+.menu {
+  border: none;
+  flex: 1;
+  justify-content: flex-end;
+  
+  :global(.ant-menu-item) {
+    font-size: 1rem;
+    
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+} 

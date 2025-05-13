@@ -1,0 +1,22 @@
+.layout {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+}
+
+.section {
+  margin: 2rem 0;
+
+  &:first-child {
+    margin-top: 2rem;
+  }
+
+  &:last-child {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin: 1rem 0;
+  }
+}

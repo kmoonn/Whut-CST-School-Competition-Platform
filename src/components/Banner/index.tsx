@@ -197,14 +197,14 @@ export default function Banner() {
             <div className={styles.infoHeader}>
               <h3>{selectedCompetition.name}</h3>
               <div className={styles.linkGroup}>
-                {selectedCompetition.officialWebsite && (
-                    <a href={selectedCompetition.officialWebsite} className={styles.websiteLink}>
-                      比赛官网
+                {selectedCompetition.link && (
+                    <a href={selectedCompetition.link} className={styles.schoolLink}>
+                      校赛通知
                     </a>
                 )}
-                {selectedCompetition.link && (
-                    <a href={selectedCompetition.link} className={styles.websiteLink}>
-                      校赛通知
+                {selectedCompetition.officialWebsite && (
+                    <a href={selectedCompetition.officialWebsite} className={styles.officialLink}>
+                      比赛官网
                     </a>
                 )}
               </div>

@@ -169,7 +169,7 @@
 }
 
 
-.websiteLink {
+.schoolLink {
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1.5rem;
@@ -182,6 +182,22 @@
 
   &:hover {
     background: #4096ff;
+  }
+}
+
+.officialLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  background: #2c8b67;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #166b1b;
   }
 }
 

@@ -23,7 +23,7 @@ const menuItems = [
   {
     key: 'services',
     label: (
-        <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+        <a href="http://10.87.16.143:90/login?redirect=/index" target="_blank" rel="noopener noreferrer">
           报名参赛
         </a>
     )

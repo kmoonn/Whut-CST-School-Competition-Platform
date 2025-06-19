@@ -37,22 +37,10 @@ const carouselSettings: CarouselProps = {
 
 const carouselItems = [
   {
-    title: '第八届中国高校智能机器人创意大赛',
-    subtitle: '主题一（创意设计）：家用智能机器人——让生活更美好\n主题二（创意竞技）：魔方机器人——挑战更快\n主题三：智能机器人对抗赛—挑战更强',
-    background: 'http://www.robo-maker.org/skin/banner/20210824.jpg',
+    title: '2025年百度之星程序设计大赛校内选拔赛\n',
+    subtitle: '参赛选手登录比赛页面进行答题，每人使用1台电脑，在规定时间内使用C、C++、Python、Java等程序设计语言编写程序解决规定数量的问题。',
+    background: 'https://star.baidu.com/astar_index/img/index-banner-2025.60ddd68.jpg',
     logo: 'http://www.robo-maker.org/skin/default/images/logo.png'
-  },
-  {
-    title: '2025年全国大学生物联网设计竞赛',
-    subtitle: '',
-    background: 'https://iot.sjtu.edu.cn/uploadfiles/202504072254340.jpg',
-    logo: 'https://iot.sjtu.edu.cn/images/logo.jpg'
-  },
-  {
-    title: '2025年全国大学生计算机系统能力大赛',
-    subtitle: '',
-    background: 'https://os.educg.net/image.out?imageid=/images/md/3efa4370a188d93b18228dce68255da2.jpg',
-    logo: 'https://os.educg.net/img/logo.5daf9029.png'
   }
 ]
 
@@ -227,9 +215,7 @@ export default function Banner() {
                   {[
                     { label: '校赛报名开始', date: selectedCompetition.timeline.registration },
                     { label: '校赛报名表提交截止', date: selectedCompetition.timeline.formSubmission },
-                    { label: '校赛材料提交截止', date: selectedCompetition.timeline.workSubmission },
-                    { label: '校赛评审', date: selectedCompetition.timeline.review },
-                    { label: '结果公布', date: selectedCompetition.timeline.resultsAnnounced }
+                    { label: '校赛比赛时间', date: selectedCompetition.timeline.Competition },
                   ].map((phase, index, array) => {
                     const nextDate = array[index + 1]?.date;
                     const status = getTimelineStatus(phase.date, nextDate);
@@ -283,7 +269,7 @@ export default function Banner() {
                     onClick={() => {
                       const baseUrl = 'http://example.com/register';
                       const url = `${baseUrl}?competitionId=${selectedCompetition.id}&competitionName=${encodeURIComponent(selectedCompetition.name)}`;
-                      window.open(url, '_blank');
+                      window.open('http://10.87.16.143:90/login?redirect=/index', '_blank');
                     }}
                     disabled={!canRegister(selectedCompetition.timeline)}
                 >

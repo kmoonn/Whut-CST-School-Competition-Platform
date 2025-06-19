@@ -16,20 +16,10 @@ interface NewsProps {
 
 const newsData: NewsItem[] = [
   {
-    date: '05-12',
-    title: '【本科生院】关于举办第八届中国高校智能机器人创意大赛校赛的通知',
-    link: 'http://i.whut.edu.cn/xxtg/znbm/jwc/202505/t20250512_611363.shtml',
-  },
-  {
-    date: '05-12',
-    title: '【本科生院】关于公布第二十七届中国机器人及人工智能大赛校赛结果的通知',
-    link: 'http://i.whut.edu.cn/xxtg/znbm/jwc/202505/t20250512_611344.shtml',
-  },
-  {
-    date: '06-21',
-    title: '2024"中国高校计算机大赛——人工智能创意赛"赛事启动...',
-    link: '#',
-  },
+    date: '2025-06-18',
+    title: '【本科生院】关于组织2025年百度之星程序设计大赛校内选拔赛的通知',
+    link: 'http://i.whut.edu.cn/xxtg/znbm/jwc/202506/t20250618_614472.shtml',
+  }
 ]
 
 
@@ -49,7 +39,7 @@ export default function News({ defaultTab = 'news' }: NewsProps) {
         <h2 className={styles.sectionTitle}>
           赛事动态
           <span>COMPETITION NEWS</span>
-          <a href="#" className={styles.more}>查看更多</a>
+          <a href="http://i.whut.edu.cn/xxtg/znbm/jwc/" className={styles.more}>查看更多</a>
         </h2>
         <div className={styles.newsList}>
           {newsData

@@ -5,7 +5,7 @@ import { Carousel } from 'antd'
 import type { CarouselProps } from 'antd'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import styles from './index.module.scss'
-import { competitionsData } from './competitionData'
+import { competitionsData } from '@/data/competitionsData'
 import Image from 'next/image'
 
 const CustomPrevArrow: React.FC<any> = (props) => {
@@ -72,18 +72,14 @@ export default function Banner() {
     return 'upcoming';
   }
 
-  function calculateProgress(timeline: any) {
+  function calculateProgress(timeline: any[]) {
     const now = new Date();
     now.setSeconds(0);
     now.setMilliseconds(0);
-    const phases = [
-      timeline.registration,
-      timeline.formSubmission,
-      timeline.workSubmission,
-      timeline.review,
-      timeline.resultsAnnounced
-    ].map(date => {
-      const d = new Date(date);
+    
+    // 获取所有日期点
+    const phases = timeline.map(phase => {
+      const d = new Date(phase.date);
       d.setSeconds(0);
       d.setMilliseconds(0);
       return d;
@@ -99,7 +95,6 @@ export default function Banner() {
         const totalDuration = currentPhaseEnd.getTime() - currentPhaseStart.getTime();
         const currentProgress = now.getTime() - currentPhaseStart.getTime();
         const phasePercentage = Math.round((currentProgress / totalDuration) * 10000) / 10000;
-
 
         // 计算总进度
         const segmentSize = 100 / (phases.length - 1);
@@ -120,10 +115,12 @@ export default function Banner() {
     return 0; // 默认返回
   }
 
-  function canRegister(timeline: any) {
+  function canRegister(timeline: any[]) {
     const now = new Date();
-    const registrationStart = new Date(timeline.registration);
-    const registrationEnd = new Date(timeline.formSubmission);
+    if (timeline.length < 2) return false;
+    
+    const registrationStart = new Date(timeline[0].date);
+    const registrationEnd = new Date(timeline[1].date);
 
     return now >= registrationStart && now <= registrationEnd;
   }
@@ -212,11 +209,7 @@ export default function Banner() {
             <div className={styles.timeline}>
               <div className={styles.timelineTrack}>
                 <div className={styles.timelinePoints}>
-                  {[
-                    { label: '校赛报名开始', date: selectedCompetition.timeline.registration },
-                    { label: '校赛报名表提交截止', date: selectedCompetition.timeline.formSubmission },
-                    { label: '校赛作品材料提交截止', date: selectedCompetition.timeline.workSubmission },
-                  ].map((phase, index, array) => {
+                  {selectedCompetition.timeline.map((phase, index, array) => {
                     const nextDate = array[index + 1]?.date;
                     const status = getTimelineStatus(phase.date, nextDate);
                     const isInProgress = status === 'current' && nextDate;
@@ -227,7 +220,7 @@ export default function Banner() {
                             <div className={styles.point} />
                             <div className={styles.label}>{phase.label}</div>
                             <div className={styles.date}>
-                              {phase.date.toLocaleDateString('zh-CN', {
+                              {new Date(phase.date).toLocaleDateString('zh-CN', {
                                 month: '2-digit',
                                 day: '2-digit'
                               })}

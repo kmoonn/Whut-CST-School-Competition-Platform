@@ -1,60 +1,37 @@
 'use client'
 
+import React from 'react'
+import Link from 'next/link'
 import { Card } from 'antd'
 import styles from './index.module.scss'
+import { exhibitionData } from '@/data/exhibitionData'
 
 const { Meta } = Card
 
-interface ExhibitionProps {
-    title?: string
+export default function Exhibition() {
+  return (
+    <div className={`section-card ${styles.exhibition}`}>
+      <h2 className="section-title">
+        优秀作品
+        <span>Excellent Works</span>
+        <Link href="/exhibition" className="more">
+          更多 &gt;
+        </Link>
+      </h2>
+      
+      <div className={styles.workGrid}>
+        {exhibitionData.map(work => (
+          <Link href={work.detailUrl || `/works/${work.id}`} key={work.id}>
+            <Card
+              hoverable
+              cover={<img alt={work.title} src={work.imageUrl} />}
+              className={styles.workCard}
+            >
+              <Meta title={work.title} description={work.description} />
+            </Card>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
 }
-
-export default function Exhibition({ title = '优秀作品' }: ExhibitionProps) {
-    return (
-        <div className={styles.exhibition}>
-            <h2 className={styles.sectionTitle}>
-                {title}
-                <span>EXCELLENT WORKS</span>
-                <a href="#" className={styles.more}>查看更多</a>
-            </h2>
-            <div className={styles.workGrid}>
-                {works.map((work, index) => (
-                    <Card
-                        key={index}
-                        hoverable
-                        className={styles.workCard}
-                        cover={<img alt={work.title} src={work.image} />}
-                    >
-                        <Meta
-                            title={work.title}
-                            description={work.description}
-                        />
-                    </Card>
-                ))}
-            </div>
-        </div>
-    )
-}
-
-const works = [
-    {
-        title: '智能医疗辅助系统',
-        description: '2023计算机设计大赛国赛一等奖',
-        image: 'https://placeholder.im/300x200.png/cccccc'
-    },
-    {
-        title: '智慧校园导航平台',
-        description: '2023计算机设计大赛国赛二等奖',
-        image: 'https://placeholder.im/300x200.png/cccccc'
-    },
-    {
-        title: 'AI教育助手',
-        description: '2023计算机设计大赛省赛特等奖',
-        image: 'https://placeholder.im/300x200.png/cccccc'
-    },
-    {
-        title: '智能家居控制系统',
-        description: '2023计算机设计大赛省赛一等奖',
-        image: 'https://placeholder.im/300x200.png/cccccc'
-    }
-]

@@ -6,6 +6,11 @@ export interface Banner {
     logoUrl: string;
 }
 
+export interface TimelinePhase {
+    label: string;
+    date: Date;
+}
+
 export interface Competition {
     id: number;
     name: string;
@@ -13,11 +18,7 @@ export interface Competition {
     participants: number;
     officialWebsite?: string;
     link?: string;
-    timeline: {
-        registration: Date;
-        formSubmission: Date;
-        workSubmission: Date;
-    };
+    timeline: TimelinePhase[];
 }
 
 export interface NewsItem {

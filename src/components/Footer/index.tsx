@@ -18,7 +18,7 @@ export default function Footer() {
           <div className={styles.links}>
             <h3>快速链接</h3>
             <a href="http://cst.whut.edu.cn/" target="_blank" rel="noopener noreferrer">
-              计算机智能学院
+              计算机与人工智能学院
             </a>
             <a href="https://zhlgd.whut.edu.cn/" target="_blank" rel="noopener noreferrer">
               智慧理工大

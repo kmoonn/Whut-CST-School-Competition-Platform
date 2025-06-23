@@ -37,10 +37,10 @@ const carouselSettings: CarouselProps = {
 
 const carouselItems = [
   {
-    title: '2025年百度之星程序设计大赛校内选拔赛\n',
-    subtitle: '参赛选手登录比赛页面进行答题，每人使用1台电脑，在规定时间内使用C、C++、Python、Java等程序设计语言编写程序解决规定数量的问题。',
-    background: 'https://star.baidu.com/astar_index/img/index-banner-2025.60ddd68.jpg',
-    logo: 'http://www.robo-maker.org/skin/default/images/logo.png'
+    title: '2025年中国高校计算机大赛-人工智能创意赛校内选拔赛',
+    subtitle: '参赛作品须基于百度飞桨及文心大模型相关技术，在飞桨AI Studio星河社区完成相关模型开发、模型部署、模型调用和产品托管/上线的全流程。',
+    background: 'http://aicontest.baidu.com/images/2025/banner.jpg',
+    logo: 'http://aicontest.baidu.com/images/home_logo.png'
   }
 ]
 
@@ -215,7 +215,7 @@ export default function Banner() {
                   {[
                     { label: '校赛报名开始', date: selectedCompetition.timeline.registration },
                     { label: '校赛报名表提交截止', date: selectedCompetition.timeline.formSubmission },
-                    { label: '校赛比赛时间', date: selectedCompetition.timeline.Competition },
+                    { label: '校赛作品材料提交截止', date: selectedCompetition.timeline.workSubmission },
                   ].map((phase, index, array) => {
                     const nextDate = array[index + 1]?.date;
                     const status = getTimelineStatus(phase.date, nextDate);
@@ -269,7 +269,7 @@ export default function Banner() {
                     onClick={() => {
                       const baseUrl = 'http://example.com/register';
                       const url = `${baseUrl}?competitionId=${selectedCompetition.id}&competitionName=${encodeURIComponent(selectedCompetition.name)}`;
-                      window.open('http://10.87.16.143:90/login?redirect=/index', '_blank');
+                      window.open('http://10.87.16.143:90/register', '_blank');
                     }}
                     disabled={!canRegister(selectedCompetition.timeline)}
                 >

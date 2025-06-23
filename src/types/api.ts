@@ -16,7 +16,7 @@ export interface Competition {
     timeline: {
         registration: Date;
         formSubmission: Date;
-        Competition: Date;
+        workSubmission: Date;
     };
 }
 

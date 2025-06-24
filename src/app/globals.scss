@@ -21,6 +21,17 @@
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
+  --section-title-color: #333;
+  --section-subtitle-color: #666;
+  --more-link-color: var(--primary-color);
+  --more-link-hover: var(--primary-hover, #4096ff);
+  --work-card-transition: transform 0.3s, box-shadow 0.3s;
+  --work-card-hover-transform: translateY(-5px);
+  --work-card-hover-shadow: var(--shadow-md);
+  --header-bg: #fff;
+  --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --logo-color: var(--primary-color);
+  --menu-item-hover: var(--primary-color);
 }
 
 * {

@@ -1,6 +1,8 @@
+
+
 .header {
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--header-bg);
+  box-shadow: var(--header-shadow);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -18,7 +20,7 @@
   align-items: center;
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--primary-color);
+  color: var(--logo-color);
 
   img {
     height: 40px;
@@ -35,7 +37,7 @@
     font-size: 1rem;
     
     &:hover {
-      color: var(--primary-color);
+      color: var(--menu-item-hover);
     }
   }
-} 
+}

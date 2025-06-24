@@ -18,74 +18,43 @@ export function getTimelineStatus(date: Date, nextDate?: Date): 'completed' | 'c
 }
 
 /**
- * 计算赛事进度百分比
+ * 计算时间线进度百分比
+ * @param timeline 时间线阶段数组
+ * @returns 百分比数值（0-100）
  */
-export function calculateProgress(timeline: {
-  registration: Date;
-  formSubmission: Date;
-  workSubmission: Date;
-  review?: Date;
-  resultsAnnounced?: Date;
-}): number {
+export function calculateProgress(timeline: { date: Date }[]): number {
+  if (!timeline || timeline.length < 2) return 0;
+
   const now = new Date();
-  now.setSeconds(0);
-  now.setMilliseconds(0);
-  
-  // 过滤掉undefined的时间点
-  const phases = [
-    timeline.registration,
-    timeline.formSubmission,
-    timeline.workSubmission,
-    timeline.review,
-    timeline.resultsAnnounced
-  ].filter(Boolean).map(date => {
-    if (!(date instanceof Date)) return null;
-    const d = new Date(date);
-    d.setSeconds(0);
-    d.setMilliseconds(0);
-    return d;
-  }).filter(Boolean) as Date[];
+  const startDate = new Date(timeline[0].date);
+  const endDate = new Date(timeline[timeline.length - 1].date);
 
-  // 找到当前所处的阶段区间
-  for (let i = 0; i < phases.length - 1; i++) {
-    const currentPhaseStart = phases[i];
-    const currentPhaseEnd = phases[i + 1];
+  // 如果还未开始
+  if (now < startDate) return 0;
+  // 如果已经结束
+  if (now > endDate) return 100;
 
-    if (now >= currentPhaseStart && now <= currentPhaseEnd) {
-      // 计算当前阶段的进度
-      const totalDuration = currentPhaseEnd.getTime() - currentPhaseStart.getTime();
-      const currentProgress = now.getTime() - currentPhaseStart.getTime();
-      const phasePercentage = Math.round((currentProgress / totalDuration) * 10000) / 10000;
+  // 计算总时长（毫秒）
+  const totalDuration = endDate.getTime() - startDate.getTime();
+  // 计算已经过去的时长（毫秒）
+  const elapsedDuration = now.getTime() - startDate.getTime();
 
-      // 计算总进度
-      const segmentSize = 100 / (phases.length - 1);
-      return Math.round((i * segmentSize + segmentSize * phasePercentage) * 100) / 100;
-    }
-  }
-
-  // 如果时间在最后一个日期之后
-  if (now > phases[phases.length - 1]) {
-    return 100;
-  }
-
-  // 如果时间在第一个日期之前
-  if (now < phases[0]) {
-    return 0;
-  }
-
-  return 0; // 默认返回
+  // 计算进度百分比
+  return Math.min(100, (elapsedDuration / totalDuration) * 100);
 }
 
 /**
- * 检查当前是否在报名阶段
+ * 检查是否可以报名
+ * @param timeline 时间线阶段数组
+ * @returns 是否可以报名
  */
-export function canRegister(timeline: {
-  registration: Date;
-  formSubmission: Date;
-}): boolean {
-  const now = new Date();
-  const registrationStart = new Date(timeline.registration);
-  const registrationEnd = new Date(timeline.formSubmission);
+export function canRegister(timeline: { date: Date }[]): boolean {
+  if (!timeline || timeline.length < 2) return false;
 
+  const now = new Date();
+  const registrationStart = new Date(timeline[0].date); // 报名开始
+  const registrationEnd = new Date(timeline[1].date);   // 报名结束（作品提交截止）
+
+  // 如果当前时间在报名开始和结束之间，则可以报名
   return now >= registrationStart && now <= registrationEnd;
-} 
+}

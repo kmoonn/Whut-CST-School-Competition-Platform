@@ -17,18 +17,10 @@ export default function Header() {
       onClick: () => router.push('/')
     },
     {
-      key: 'news',
-      label: (
-        <a href="http://i.whut.edu.cn/xxtg/znbm/jwc/" target="_blank" rel="noopener noreferrer">
-          校赛通知
-        </a>
-      )
-    },
-    {
       key: 'services',
       label: (
         <a href="http://10.87.16.143:90/register" target="_blank" rel="noopener noreferrer">
-          报名参赛
+          登录
         </a>
       )
     }
@@ -46,7 +38,7 @@ export default function Header() {
       <div className={`container ${styles.headerContent}`}>
         <div className={styles.logo}>
           <img src={logo.src} alt="Logo" />
-          <span>赛事中心</span>
+          <span>计算机与人工智能学院校赛平台</span>
         </div>
         <Menu
           mode="horizontal"

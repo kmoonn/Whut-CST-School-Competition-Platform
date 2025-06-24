@@ -3,7 +3,6 @@ export interface Banner {
     title: string;
     subtitle: string;
     backgroundUrl: string;
-    logoUrl: string;
 }
 
 export interface TimelinePhase {
@@ -15,7 +14,6 @@ export interface Competition {
     id: number;
     name: string;
     organizer: string;
-    participants: number;
     officialWebsite?: string;
     link?: string;
     timeline: TimelinePhase[];
@@ -26,7 +24,6 @@ export interface NewsItem {
     date: string;
     title: string;
     link: string;
-    category: 'news' | 'notification';
 }
 
 export interface ExhibitionWork {

@@ -95,9 +95,10 @@
 
   h2 {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
     color: #333;
+    font-weight: 600;
 
     span {
       font-size: 1rem;
@@ -110,32 +111,43 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .item {
-  padding: 1.5rem;
+  padding: 1.8rem 1.2rem;
   border: 1px solid #e8e8e8;
-  border-radius: 8px;
+  border-radius: 10px;
   background: white;
   cursor: pointer;
   transition: all 0.3s;
   text-align: center;
   color: #333;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 80px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 
   &:hover {
     border-color: #1677ff;
     color: #1677ff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   }
 
   &.active {
     background: #1677ff;
     color: white;
     border-color: #1677ff;
+    box-shadow: 0 4px 12px rgba(22, 119, 255, 0.3);
   }
 }
 

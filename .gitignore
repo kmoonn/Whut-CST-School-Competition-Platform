@@ -68,5 +68,5 @@ Thumbs.db
 .yarn-integrity
 
 # dotenv environment variable files
-.env.dev
+.env
 .env.prod

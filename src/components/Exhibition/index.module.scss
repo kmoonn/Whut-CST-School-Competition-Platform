@@ -1,24 +1,26 @@
-.sectionTitle {
+
+
+.sectionHeader {
   display: flex;
   align-items: baseline;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
-  color: #333;
+  color: var(--section-title-color);
 
   span {
     margin-left: 1rem;
     font-size: 1rem;
-    color: #666;
+    color: var(--section-subtitle-color);
     font-weight: normal;
   }
 
   .more {
     margin-left: auto;
     font-size: 1rem;
-    color: var(--primary-color);
+    color: var(--more-link-color);
 
     &:hover {
-      color: var(--primary-hover, #4096ff);
+      color: var(--more-link-hover);
     }
   }
 }
@@ -42,11 +44,11 @@
 }
 
 .workCard {
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: var(--work-card-transition);
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    transform: var(--work-card-hover-transform);
+    box-shadow: var(--work-card-hover-shadow);
   }
 
   :global {

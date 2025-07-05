@@ -19,7 +19,7 @@ export default function Header() {
     {
       key: 'services',
       label: (
-        <a href="http://10.87.16.143:90/register" target="_blank" rel="noopener noreferrer">
+        <a href="http://10.87.16.143" target="_blank" rel="noopener noreferrer">
           登录
         </a>
       )

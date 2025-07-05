@@ -58,3 +58,27 @@ export function canRegister(timeline: { date: Date }[]): boolean {
   // 如果当前时间在报名开始和结束之间，则可以报名
   return now >= registrationStart && now <= registrationEnd;
 }
+
+/**
+ * 检查报名是否未开始
+ * @param timeline 时间线阶段数组
+ * @returns 是否未开始
+ */
+export function isRegisterNotStarted(timeline: { date: Date }[]): boolean {
+  if (!timeline || timeline.length < 2) return false;
+  const now = new Date();
+  const registrationStart = new Date(timeline[0].date);
+  return now < registrationStart;
+}
+
+/**
+ * 检查报名是否已截止
+ * @param timeline 时间线阶段数组
+ * @returns 是否已截止
+ */
+export function isRegisterEnded(timeline: { date: Date }[]): boolean {
+  if (!timeline || timeline.length < 2) return false;
+  const now = new Date();
+  const registrationEnd = new Date(timeline[1].date);
+  return now > registrationEnd;
+}

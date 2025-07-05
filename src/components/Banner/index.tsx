@@ -7,7 +7,7 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import styles from './index.module.scss'
 import { competitionsData } from '@/data/competitionsData'
 import { bannerData } from '@/data/bannerData'
-import { getTimelineStatus, calculateProgress, canRegister } from '@/utils/dateUtils'
+import { getTimelineStatus, calculateProgress, canRegister, isRegisterNotStarted, isRegisterEnded } from '@/utils/dateUtils'
 import type { Competition, TimelinePhase } from '@/types/api'
 
 const CustomPrevArrow: React.FC<any> = (props) => {
@@ -174,7 +174,7 @@ export default function Banner() {
                 <button
                     className={styles.registerButton}
                     onClick={() => {
-                      window.open('http://10.87.16.143:90/register', '_blank');
+                      window.open('http://10.87.16.143:90', '_blank');
                     }}
                     disabled={!canRegister(selectedCompetition.timeline)}
                 >
@@ -185,7 +185,7 @@ export default function Banner() {
                           <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
                         </svg>
                       </>
-                  ) : '报名未开始'}
+                  ) : isRegisterNotStarted(selectedCompetition.timeline) ? '报名未开始' : isRegisterEnded(selectedCompetition.timeline) ? '报名已截止' : '报名未开始'}
                 </button>
               </div>
             </div>

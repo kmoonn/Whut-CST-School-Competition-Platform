@@ -1,10 +1,10 @@
 # Whut-CST-School-Competition-Platform-Homepage
 
-# 武汉理工大学计算机智能学院校赛平台首页
+# 武汉理工大学计算机智能学院校赛平台
 
 ## 项目简介
 
-本项目是武汉理工大学计算机智能学院校赛平台首页前端，网站提供赛事信息展示、新闻动态、在线报名等功能。
+本项目是武汉理工大学计算机智能学院校赛平台首页，网站提供赛事信息展示、新闻动态、在线报名等功能。
 
 ## 技术栈
 
@@ -43,7 +43,7 @@
 1. 克隆项目
 ```bash
 git clone [项目地址]
-cd Whut-CS-Competition-Student-Service-Center
+cd Whut-CST-School-Competition-Platform-Homepage
 ```
 
 2. 安装依赖

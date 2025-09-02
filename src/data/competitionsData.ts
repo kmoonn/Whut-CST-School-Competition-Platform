@@ -20,8 +20,8 @@ export const competitionsData: Competition[] = [
     organizer: '计算机与人工智能学院',
     timeline: [
       { label: '报名开始', date: new Date('2025-07-07') },
-      { label: '算法挑战赛报名截止时间', date: new Date('2025-09-01') },
-      { label: '其他赛道报名截止时间', date: new Date('2025-09-20') }
+      { label: '其他赛道报名截止时间', date: new Date('2025-09-20') },
+      { label: '算法挑战赛报名截止时间', date: new Date('2025-10-10') },
     ],
   }
 ]; 

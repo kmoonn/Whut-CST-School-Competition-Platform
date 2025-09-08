@@ -34,4 +34,3 @@ export interface ExhibitionWork {
     link?: string;
     detailUrl?: string;
 }
-

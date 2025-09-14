@@ -1,4 +1,4 @@
-# Whut-CST-School-Competition-Platform-Homepage
+# Whut-CST-School-Competition-Platform
 
 # 武汉理工大学计算机智能学院校赛平台
 

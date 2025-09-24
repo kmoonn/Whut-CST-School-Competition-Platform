@@ -174,7 +174,7 @@ export default function Banner() {
                 <button
                     className={styles.registerButton}
                     onClick={() => {
-                      window.open('https://raceadmin.cst.whut.tech/', '_blank');
+                      window.open('http://10.87.16.143:90/', '_blank');
                     }}
                     disabled={!canRegister(selectedCompetition.timeline)}
                 >

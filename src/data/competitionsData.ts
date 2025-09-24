@@ -27,13 +27,12 @@ export const competitionsData: Competition[] = [
   {
     id: 3,
     name: '2025年第22届全国大学生信息安全与对抗技术竞赛“智能安全赛”校内选拔赛',
-    link: 'http://i.whut.edu.cn/xxtg/znbm/jwc/',
+    link: 'http://i.whut.edu.cn/xxtg/znbm/jwc/202509/t20250909_617992.shtml',
     officialWebsite: 'https://www.isclab.org.cn/',
     organizer: '计算机与人工智能学院',
     timeline: [
       { label: '报名开始', date: new Date('2025-09-08') },
-      { label: '校赛材料提交截止时间', date: new Date('2025-09-26') },
-      { label: '官网报名截止时间', date: new Date('2025-09-30') },
+      { label: '校赛材料提交截止时间', date: new Date('2025-09-24') }
     ],
   }
 ]; 

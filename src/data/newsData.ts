@@ -12,5 +12,11 @@ export const newsData: NewsItem[] = [
     date: '2025-07-07',
     title: '【本科生院】关于组织2025年全球校园人工智能算法精英大赛校内选拔赛的通知',
     link: 'http://i.whut.edu.cn/xxtg/znbm/jwc/202507/t20250707_615955.shtml'
+  },
+    {
+    id: 3,
+    date: '2025-09-09',
+    title: '【本科生院】关于组织2025年第22届全国大学生信息安全与对抗技术竞赛“智能安全赛”校内选拔赛的通知',
+    link: 'http://i.whut.edu.cn/xxtg/znbm/jwc/202509/t20250909_617992.shtml'
   }
 ]; 
